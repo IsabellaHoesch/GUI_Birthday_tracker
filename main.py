@@ -28,9 +28,24 @@ if __name__ == "__main__":
         connection.close()
         print("Daten geschrieben: " + fname.get() + ", " + lname.get() + ", " + bdate.get())
 
+    def show_entry():
+        connection = sqlite3.connect('bdaydb.db')
+        cursor = connection.cursor()
+        cursor.execute('''SELECT *, oid FROM personen''')
+        records = cursor.fetchall()
+        print_records = ""
+        # Loop through resutls
+        for record in records:
+            print_records += str(record)+"\n"
+        show_label = Label(frame4, text=print_records)
+        show_label.pack()
+        connection.close()
+
+
     def submit():
         if os.path.exists('bdaydb.db'):
             add_entry()
+            show_entry()
         else:
             initDB()
 
@@ -53,8 +68,6 @@ if __name__ == "__main__":
 
     # Label and text entry box for entry points: firstname, lastname, birthdate
     Label(frame1, text="First Name", font=("Helvetica", 14), fg="pink", bg="Black").grid(row=0, column=0, sticky=W)
-    # fnamevar = StringVar()
-    # fname = Entry(frame1, textvariable=fnamevar, fg="black", bg="lavenderblush2")
     fname = Entry(frame1, fg="black", bg="lavenderblush2")
     fname.grid(row=0, column=1, sticky=W)
 
@@ -88,7 +101,7 @@ if __name__ == "__main__":
     scroll.config(command=select.yview)
     scroll.pack(side=RIGHT, fill=Y)
     select.pack(side=LEFT, fill=BOTH, expand=1)
-###
+    ###
 
     # start the GUI
     gui.mainloop()
