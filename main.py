@@ -1,11 +1,10 @@
 
 from tkinter import *
 from tkinter import messagebox
-from functions import *
 import os
 import os.path
 import sqlite3
-from datenbank import *
+
 
 
 # Driver code
