@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47617577-84b4-4948-915c-b2eacf23ff54" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dbguitest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uebungsdateien_tkinter/DB1/rjs/testdb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datenbankgui.py" beforeDir="false" afterPath="$PROJECT_DIR$/Datenbankgui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datenbank.py" beforeDir="false" afterPath="$PROJECT_DIR$/datenbank.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uebungsdateien_tkinter/DB1/Datenbankgui.py" beforeDir="false" afterPath="$PROJECT_DIR$/uebungsdateien_tkinter/DB1/Datenbankgui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uebungsdateien_tkinter/DB1/rjs/datenbank.py" beforeDir="false" afterPath="$PROJECT_DIR$/uebungsdateien_tkinter/DB1/rjs/datenbank.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +35,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CF_Klageentscheidung_NN" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pyplan" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -56,7 +67,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
