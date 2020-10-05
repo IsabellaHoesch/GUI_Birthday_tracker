@@ -1,4 +1,11 @@
+"""
+main (and only) file with
+- event-functions on top
+- GUI definition below
 
+"""
+
+# install packages
 from tkinter import *
 import os
 import os.path
@@ -26,7 +33,7 @@ if __name__ == "__main__":
         connection.close()
         print("Daten geschrieben: " + fname.get() + ", " + lname.get() + ", " + bdate.get())
 
-    def show_entry():
+    def show_entry(): # show-records.button: all collected records are shown
         connection = sqlite3.connect('bdaydb.db')
         cursor = connection.cursor()
         cursor.execute('''SELECT *, oid FROM personen''')
@@ -45,7 +52,7 @@ if __name__ == "__main__":
         connection.close()
 
 
-    def submit():
+    def submit(): # submit-button: entries are added either to existing db or a new db is created
         if os.path.exists('bdaydb.db'):
             add_entry()
         else:
@@ -56,13 +63,12 @@ if __name__ == "__main__":
         lname.delete(0, END)
         bdate.delete(0, END)
 
-    def delete():
+    def delete(): # delete-button: entries are deleted (by ID-number)
         connection = sqlite3.connect('bdaydb.db')
         cursor = connection.cursor()
         cursor.execute(""" DELETE FROM personen WHERE oid= """ + delete_box.get())
         connection.commit()
         connection.close()
-
 
 
     gui = Tk()  # create a GUI window
@@ -126,28 +132,3 @@ if __name__ == "__main__":
 
     # start the GUI
     gui.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ideas for later:
-# Spinbox für datumpicker
-
