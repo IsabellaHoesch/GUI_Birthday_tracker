@@ -1,4 +1,4 @@
-# GUI_Birthday_tracker
+# GUI Birthday tracker
 Building a GUI store birthdates in a database.
 (further utility like reminder might be added at later point).
 
