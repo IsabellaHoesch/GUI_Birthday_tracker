@@ -35,24 +35,35 @@ if __name__ == "__main__":
         print_records = ""
         # Loop through resutls
         for record in records:
-            print_records += str(record)+"\n"
-        show_label = Label(frame4, text=print_records)
-        show_label.pack()
+            print_records += str(record[0])+ " " + str(record[1]) + ": " + str(record[2]) + "\n"
+        # scroll = Scrollbar(frame4, orient=VERTICAL)
+        # select = Listbox(frame4, yscrollcommand=scroll.set, height=6)
+        # scroll.config(command=select.yview)
+        # scroll.pack(side=RIGHT, fill=Y)
+        # select.pack(side=LEFT, fill=BOTH, expand=1)
+        show_label = Label(frame4, text=print_records) # select
+        show_label.grid(row=0, column=1, padx=20, pady=(10,0))
         connection.close()
 
 
     def submit():
         if os.path.exists('bdaydb.db'):
             add_entry()
-            show_entry()
         else:
             initDB()
-
 
         # clear text boxes:
         fname.delete(0, END)
         lname.delete(0, END)
         bdate.delete(0, END)
+
+    def delete():
+        connection = sqlite3.connect('bdaydb.db')
+        cursor = connection.cursor()
+        cursor.execute(""" DELETE FROM personen WHERE oid= """ + delete_box.get())
+        connection.commit()
+        connection.close()
+
 
 
     gui = Tk()  # create a GUI window
@@ -82,8 +93,10 @@ if __name__ == "__main__":
     frame2.pack(padx=10, pady=10)
 
     info_label = Label(frame2, font=("Helvetica", 14), bg="black", fg="pink", pady=15).place()
-    b1 = Button(frame2, text=" Add  ", font=("Helvetica", 12), fg="lightcyan2", bg="Black", command=submit)  # , command=action
+    # submit button
+    b1 = Button(frame2, text=" Add  ", font=("Helvetica", 12), fg="lightcyan2", bg="Black", command=submit)
     b1.pack(side=LEFT)
+
 
     # frame3 = Frame(gui)  # Row of buttons (2)
     # frame3.pack(padx=10, pady=10)
@@ -93,14 +106,24 @@ if __name__ == "__main__":
     # b6.pack(side=LEFT)
     # b7.pack(side=LEFT)
 
+    #show records
+    show_b = Button(frame2, text=" Show records  ", font=("Helvetica", 12), fg="lightcyan2", bg="Black", command=show_entry)
+    show_b.pack(side=LEFT)
+    # show records
     frame4 = Frame(gui)  # select of names
     frame4.pack(padx=10, pady=10)
-    scroll = Scrollbar(frame4, orient=VERTICAL)
-    select = Listbox(frame4, yscrollcommand=scroll.set, height=6)
-    scroll.config(command=select.yview)
-    scroll.pack(side=RIGHT, fill=Y)
-    select.pack(side=LEFT, fill=BOTH, expand=1)
+
     ###
+
+    # delete record
+    frame5 = Frame(gui)  # select of names
+    frame5.pack(padx=10, pady=10)
+    delete_b = Button(frame5, text=" Delete record  ", font=("Helvetica", 12), fg="lightcyan2", bg="Black", command=delete)
+    delete_b.pack(side=RIGHT)
+    delete_box = Entry(frame5, width=30)
+    delete_box.pack(side=RIGHT, fill=BOTH, expand=1)
+    delete_box_label = Label(frame5, text="Delete ID #")
+    delete_box_label.pack(side=LEFT, fill=BOTH, expand=1)
 
     # start the GUI
     gui.mainloop()
