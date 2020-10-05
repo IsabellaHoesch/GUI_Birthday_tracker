@@ -1,6 +1,5 @@
 
 from tkinter import *
-from tkinter import messagebox
 import os
 import os.path
 import sqlite3
